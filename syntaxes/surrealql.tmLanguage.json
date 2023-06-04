@@ -1,7 +1,20 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "SurrealQL",
+	"scopeName": "source.surrealql",
+	"fileTypes": [".surql", ".surrealql"],
+	"foldingStartMarker": "[\\{|\\[]\\s*$",
+	"foldingStopMarker": "^\\s*[\\}|\\]]",
 	"patterns": [
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#js-function"
+		},
+		{
+			"include": "#function"
+		},
 		{
 			"include": "#keywords"
 		},
@@ -10,6 +23,42 @@
 		}
 	],
 	"repository": {
+        "comment.line.dash": {
+            "begin": "--",
+            "end": "\\n",
+            "name": "comment.line.double-dash"
+        },
+		"comment.line.slash": {
+            "begin": "//",
+            "end": "\\n",
+            "name": "comment.line.double-slash"
+        },
+        "comment.line.hash": {
+            "begin": "#",
+            "end": "\\n",
+            "name": "comment.line.number-sign"
+        },
+        "comment.block": {
+            "begin": "/\\*",
+            "end": "\\*/",
+            "name": "comment.block.surrealql"
+        },
+        "comment": {
+            "patterns": [
+                {
+                    "include": "#comment.line.dash"
+                },
+                {
+                    "include": "#comment.line.slash"
+                },
+                {
+                    "include": "#comment.line.hash"
+                },
+                {
+                    "include": "#comment.block"
+                }
+            ]
+        },
 		"keywords": {
 			"patterns": [
 				{
@@ -34,11 +83,11 @@
 				},
 				{
 					"name": "keyword.control.begin.surrealql",
-					"match": "\\b(BEGIN|begin)(?: (TRANSACTION|transaction))?\\b"
+					"match": "\\b(BEGIN|begin)(?: +(TRANSACTION|transaction))?\\b"
 				},
 				{
 					"name": "keyword.control.cancel.surrealql",
-					"match": "\\b(CANCEL|cancel)(?: (TRANSACTION|transaction))?\\b"
+					"match": "\\b(CANCEL|cancel)(?: +(TRANSACTION|transaction))?\\b"
 				},
 				{
 					"name": "keyword.control.columns.surrealql",
@@ -46,7 +95,7 @@
 				},
 				{
 					"name": "keyword.control.commit.surrealql",
-					"match": "\\b(COMMIT|commit)(?: (TRANSACTION|transaction))?\\b"
+					"match": "\\b(COMMIT|commit)(?: +(TRANSACTION|transaction))?\\b"
 				},
 				{
 					"name": "keyword.control.content.surrealql",
@@ -134,7 +183,7 @@
 				},
 				{
 					"name": "keyword.control.group.surrealql",
-					"match": "\\b(GROUP|group)(?: (BY|by))?\\b"
+					"match": "\\b(GROUP|group)(?: +(BY|by))?\\b"
 				},
 				{
 					"name": "keyword.control.hs256.surrealql",
@@ -162,7 +211,7 @@
 				},
 				{
 					"name": "keyword.control.insert.surrealql",
-					"match": "\\b(INSERT|insert)(?:(?: (IGNORE|ignore))? (INTO|into))?\\b"
+					"match": "\\b(INSERT|insert)(?:(?: +(IGNORE|ignore))? +(INTO|into))?\\b"
 				},
 				{
 					"name": "keyword.control.into.surrealql",
@@ -178,7 +227,7 @@
 				},
 				{
 					"name": "keyword.control.limit.surrealql",
-					"match": "\\b(LIMIT|limit)(?: (BY|by))?\\b"
+					"match": "\\b(LIMIT|limit)(?: +(BY|by))?\\b"
 				},
 				{
 					"name": "keyword.control.live.surrealql",
@@ -202,7 +251,7 @@
 				},
 				{
 					"name": "keyword.control.on-duplicate-key-update.surrealql",
-					"match": "\\b(ON DUPLICATE KEY UPDATE|on duplicate key update)\\b"
+					"match": "\\b(ON +DUPLICATE +KEY +UPDATE|on +duplicate +key +update)\\b"
 				},
 				{
 					"name": "keyword.control.on.surrealql",
@@ -210,7 +259,7 @@
 				},
 				{
 					"name": "keyword.control.order.surrealql",
-					"match": "\\b(ORDER|order)(?: (BY|by))?\\b"
+					"match": "\\b(ORDER|order)(?: +(BY|by))?\\b"
 				},
 				{
 					"name": "keyword.control.passhash.surrealql",
@@ -302,11 +351,11 @@
 				},
 				{
 					"name": "keyword.control.split.surrealql",
-					"match": "\\b(SPLIT|split)(?: (ON|on))?\\b"
+					"match": "\\b(SPLIT|split)(?: +(ON|on))?\\b"
 				},
 				{
 					"name": "keyword.control.start.surrealql",
-					"match": "\\b(START|start)(?: (AT|at))?\\b"
+					"match": "\\b(START|start)(?: +(AT|at))?\\b"
 				},
 				{
 					"name": "keyword.control.table.surrealql",
@@ -497,10 +546,359 @@
 					"match": "\\/|÷"
 				}
 			]
-		}
-	},
-	"scopeName": "source.surrealql",
-	"fileTypes": [".surql", ".surrealql"],
-	"foldingStartMarker": "[\\{|\\[]\\s*$",
-	"foldingStopMarker": "^\\s*[\\}|\\]]"
+		},
+		"js-function": {
+			"begin": "(?=(\\bfunction\\b))",
+			"end": "(?<=})",
+			"beginCaptures": {
+				"1": {
+					"name": "support.function.js"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#comment"
+				},
+				{
+					"begin": "\\(",
+					"end": "\\)",
+					"name": "meta.function.arguments",
+					"patterns": [
+						{
+							"include": "#value"
+						}
+					]
+				},
+				{
+					"begin": "{",
+					"end": "}",
+					"patterns": [
+						{
+							"include": "source.js"
+						}
+					]
+				}
+			]
+		},
+		"function": {
+            "patterns": [
+				{
+                    "begin": "(function)\\s*\\(((?:.|\\s)*)\\)\\s*{",
+					"end": "}",
+                    "beginCaptures": {
+                        "1": {
+							"name": "support.function"
+						},
+						"2": {
+							"name": "variable.parameter"
+						}
+                    },
+					"patterns": [
+						{
+							"include": "source.js"
+						}
+					]
+                },
+				{
+                    "begin": "(\\b\\w+(?:::\\b\\w+)*) *\\(((?:.|\\n)*)\\) *{",
+					"end": "}",
+                    "beginCaptures": {
+                        "1": {
+							"name": "support.function"
+						},
+						"2": {
+							"name": "variable.parameter"
+						}
+                    },
+					"patterns": [
+						{
+							"include": "source.surrealql"
+						}
+					]
+                },
+				{
+                    "begin": "(\\b\\w+(?:::\\b\\w+)*)\\(",
+					"end": "\\)",
+                    "captures": {
+                        "1": {
+							"name": "support.function"
+						}
+                    },
+					"patterns": [
+						{
+							"include": "#array-content"
+						}
+					]
+                }
+            ]
+        },
+		"var-name": {
+            "patterns": [
+                {
+                    "match": "\\$\\w+",
+                    "name": "variable.name"
+                },
+                {
+                    "match": "\\$`\\w+`",
+                    "name": "variable.name"
+                },
+                {
+                    "match": "\\$⟨\\w+⟩",
+                    "name": "variable.name"
+                }
+            ]
+        },
+		"number": {
+            "patterns": [
+                {
+                    "match": "\\d+\\.\\d+",
+                    "name": "constant.numeric.decimal"
+                },
+                {
+                    "match": "\\d+",
+                    "name": "constant.numeric.int"
+                }
+            ]
+        },
+        "string": {
+            "patterns": [
+                {
+                    "begin": "\"",
+                    "end": "(?<!\\\\)\"",
+                    "name": "string.quoted.double",
+                    "patterns": [
+                        {
+                            "include": "#uuid"
+                        },
+                        {
+                            "include": "#record"
+                        }
+                    ]
+                },
+                {
+                    "begin": "'",
+                    "end": "(?<!\\\\)'",
+                    "name": "string.quoted.single",
+                    "patterns": [
+                        {
+                            "include": "#uuid"
+                        },
+                        {
+                            "include": "#record"
+                        }
+                    ]
+                },
+                {
+                    "begin": "`",
+                    "end": "(?<!\\\\)`",
+                    "name": "string.quoted.other",
+                    "patterns": [
+                        {
+                            "include": "#uuid"
+                        }
+                    ]
+                }
+            ]
+        },
+        "uuid": {
+            "match": "[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}",
+            "name": "constant.other.uuid"
+        },
+        "duration": {
+            "match": "(\\d+(ns|µs|ms|s|m|h|d|w|y))+",
+            "name": "constant.other"
+        },
+        "boolean": {
+            "match": "\\b(true|TRUE|false|FALSE|True|False)\\b",
+            "name": "constant.language.bool"
+        },
+        "void-type": {
+            "match": "\\b(null|NULL|none|NONE)\\b",
+            "name": "constant.language.void"
+        },
+		"array": {
+            "begin": "\\[",
+            "end": "\\]",
+            "patterns": [
+                {
+                    "include": "#array-content"
+                }
+            ]
+        },
+        "array-content": {
+            "patterns": [
+                {
+                    "include": "#value"
+                },
+                {
+                    "match": ",",
+                    "name": "punctuation.separator.array"
+                }
+            ]
+        },
+        "object": {
+            "begin": "\\{",
+            "end": "\\}",
+            "name": "surrealql.object",
+            "patterns": [
+                {
+                    "include": "#object-content"
+                }
+            ]
+        },
+        "object-content": {
+            "patterns": [
+                {
+                    "include": "#object-key"
+                },
+                {
+                    "include": "#comment"
+                },
+                {
+                    "begin": ":",
+                    "end": "(,)|(?=\\})",
+                    "patterns": [
+                        {
+                            "include": "#value"
+                        }
+                    ]
+                }
+            ]
+        },
+        "object-key": {
+            "patterns": [
+                {
+                    "begin": "\"",
+                    "end": "\"",
+                    "contentName": "entity.name.method"
+                },
+                {
+                    "begin": "'",
+                    "end": "'",
+                    "contentName": "entity.name.method"
+                },
+                {
+                    "match": "[a-zA-Z_0-9]+",
+                    "name": "entity.name.method"
+                }
+            ]
+        },
+        "record": {
+            "patterns": [
+                {
+                    "match": "([a-zA-Z0-9_]+):⟨([^⟩]+)⟩",
+                    "captures": {
+                        "1": {
+                            "name": "entity.name.class"
+                        },
+                        "2": {
+                            "name": "entity.other.attribute-name"
+                        }
+                    },
+                    "name": "entity.name"
+                },
+                {
+                    "match": "([a-zA-Z0-9_]+):`([^`]+)`",
+                    "captures": {
+                        "1": {
+                            "name": "entity.name.class"
+                        },
+                        "2": {
+                            "name": "entity.other.attribute-name"
+                        }
+                    },
+                    "name": "entity.name"
+                },
+                {
+                    "match": "([a-zA-Z0-9_]+):([a-zA-Z0-9_]+)",
+                    "captures": {
+                        "1": {
+                            "name": "entity.name.class"
+                        },
+                        "2": {
+                            "name": "entity.other.attribute-name"
+                        }
+                    },
+                    "name": "entity.name"
+                },
+                {
+                    "begin": "([a-zA-Z0-9_]+):\\[",
+                    "end": "\\]",
+                    "patterns": [
+                        {
+                            "include": "#array-content"
+                        }
+                    ]
+                },
+                {
+                    "begin": "([a-zA-Z0-9_]+):\\{",
+                    "end": "\\}",
+                    "patterns": [
+                        {
+                            "include": "#object-content"
+                        }
+                    ]
+                }
+            ]
+        },
+		"query": {
+			"patterns": [
+				{
+					"include": "$self"
+				}
+			]
+		},
+		"subquery": {
+			"begin": "\\(",
+			"end": "\\)",
+			"patterns": [
+				{
+					"include": "#query"
+				},
+				{
+					"include": "#value"
+				}
+			]
+		},
+        "value": {
+            "patterns": [
+                {
+                    "include": "#comment"
+                },
+                {
+                    "include": "#js-function"
+                },
+                {
+                    "include": "#object"
+                },
+                {
+                    "include": "#array"
+                },
+                {
+                    "include": "#var-name"
+                },
+                {
+                    "include": "#boolean"
+                },
+                {
+                    "include": "#string"
+                },
+                {
+                    "include": "#void-type"
+                },
+                {
+                    "include": "#duration"
+                },
+                {
+                    "include": "#number"
+                },
+                {
+                    "include": "#record"
+                },
+				{
+					"include": "#subquery"
+				}
+            ]
+        }
+	}
 }

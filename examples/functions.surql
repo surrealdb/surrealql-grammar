@@ -11,5 +11,25 @@ DEFINE FUNCTION fn::get_person($first: string, $last: string, $birthday: string)
 
 };
 
+function
+// arguments
+(
+	-- test
+	(SELECT * FROM test),
+	-- other
+	record:id,
+	123,
+	"bla",
+	-- Wow, lot's of subqueries
+	-- This will actually slow down parsing immensely haha
+	(((((123)))))
+) 
+
+// Body
+{
+	// Javascript!!!
+	const test = 123;
+}
+
 -- Call the global custom function, receiving the returned result
 LET $person = fn::get_person('Tobie', 'Morgan Hitchcock', '2022-09-21');

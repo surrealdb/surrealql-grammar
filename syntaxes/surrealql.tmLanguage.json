@@ -3,8 +3,8 @@
 	"name": "SurrealQL",
 	"scopeName": "source.surrealql",
 	"fileTypes": [".surql", ".surrealql"],
-	"foldingStartMarker": "[\\{|\\[]\\s*$",
-	"foldingStopMarker": "^\\s*[\\}|\\]]",
+	"foldingStartMarker": "[\\{|\\[|\\(]\\s*$",
+	"foldingStopMarker": "^\\s*[\\}|\\]\\)]",
 	"patterns": [
 		{
 			"include": "#comment"

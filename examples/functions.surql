@@ -22,14 +22,48 @@ function
 	"bla",
 	-- Wow, lot's of subqueries
 	-- This will actually slow down parsing immensely haha
-	(((((123)))))
+	(((((123))))),
+	$test.test
 ) 
 
 // Body
 {
 	// Javascript!!!
 	const test = 123;
+	const obj = {
+		test: 'cool'
+	}
 }
 
 -- Call the global custom function, receiving the returned result
 LET $person = fn::get_person('Tobie', 'Morgan Hitchcock', '2022-09-21');
+
+{
+	abc: 123
+	SELECT * FROM something
+}
+
+RETURN {
+	return {
+		abc: 123
+		SELECT * FROM something
+	}
+}
+
+DEFINE TABLE test SCHEMAFULL;
+
+DEFINE FUNCTION fn::test($arg: string) {
+	RETURN 123;
+};
+
+IF (true) THEN
+	return 123;
+IF ELSE (false) THEN
+	return 456;
+ELSE
+	return 789;
+END;
+
+let $test = 123;
+
+SLEEP 1s;

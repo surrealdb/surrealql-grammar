@@ -20,6 +20,9 @@
 		},
 		{
 			"include": "#operators"
+		},
+		{
+			"include": "#value"
 		}
 	],
 	"repository": {
@@ -350,6 +353,10 @@
 					"match": "\\b(SIGNUP|signup)\\b"
 				},
 				{
+					"name": "keyword.control.sleep.surrealql",
+					"match": "\\b(SLEEP|sleep)\\b"
+				},
+				{
 					"name": "keyword.control.split.surrealql",
 					"match": "\\b(SPLIT|split)(?: +(ON|on))?\\b"
 				},
@@ -581,57 +588,29 @@
 			]
 		},
 		"function": {
-            "patterns": [
+			"begin": "(?=((?:\\b\\w+(?:::\\b\\w+)+)|count|rand)\\s*\\()",
+			"end": "(?<=\\))",
+			"beginCaptures": {
+				"1": {
+					"name": "support.function"
+				}
+			},
+			"patterns": [
 				{
-                    "begin": "(function)\\s*\\(((?:.|\\s)*)\\)\\s*{",
-					"end": "}",
-                    "beginCaptures": {
-                        "1": {
-							"name": "support.function"
-						},
-						"2": {
-							"name": "variable.parameter"
-						}
-                    },
-					"patterns": [
-						{
-							"include": "source.js"
-						}
-					]
-                },
+					"include": "#comment"
+				},
 				{
-                    "begin": "(\\b\\w+(?:::\\b\\w+)*) *\\(((?:.|\\n)*)\\) *{",
-					"end": "}",
-                    "beginCaptures": {
-                        "1": {
-							"name": "support.function"
-						},
-						"2": {
-							"name": "variable.parameter"
-						}
-                    },
-					"patterns": [
-						{
-							"include": "source.surrealql"
-						}
-					]
-                },
-				{
-                    "begin": "(\\b\\w+(?:::\\b\\w+)*)\\(",
+					"begin": "\\(",
 					"end": "\\)",
-                    "captures": {
-                        "1": {
-							"name": "support.function"
-						}
-                    },
+					"name": "meta.function.arguments",
 					"patterns": [
 						{
-							"include": "#array-content"
+							"include": "#value"
 						}
 					]
-                }
-            ]
-        },
+				}
+			]
+		},
 		"var-name": {
             "patterns": [
                 {
@@ -736,17 +715,17 @@
                 }
             ]
         },
-        "object": {
+        "block": {
             "begin": "\\{",
             "end": "\\}",
-            "name": "surrealql.object",
+            "name": "surrealql.block",
             "patterns": [
                 {
-                    "include": "#object-content"
+                    "include": "#block-content"
                 }
             ]
         },
-        "object-content": {
+        "block-content": {
             "patterns": [
                 {
                     "include": "#object-key"
@@ -755,31 +734,25 @@
                     "include": "#comment"
                 },
                 {
-                    "begin": ":",
-                    "end": "(,)|(?=\\})",
-                    "patterns": [
-                        {
-                            "include": "#value"
-                        }
-                    ]
-                }
+					"include": "$self"
+				}
             ]
         },
         "object-key": {
             "patterns": [
                 {
                     "begin": "\"",
-                    "end": "\"",
-                    "contentName": "entity.name.method"
+                    "end": "\":",
+                    "contentName": "meta.object-literal.key"
                 },
                 {
                     "begin": "'",
-                    "end": "'",
-                    "contentName": "entity.name.method"
+                    "end": "':",
+                    "contentName": "meta.object-literal.key"
                 },
                 {
-                    "match": "[a-zA-Z_0-9]+",
-                    "name": "entity.name.method"
+                    "match": "[a-zA-Z_0-9]+:",
+                    "name": "meta.object-literal.key"
                 }
             ]
         },
@@ -835,7 +808,7 @@
                     "end": "\\}",
                     "patterns": [
                         {
-                            "include": "#object-content"
+                            "include": "#block-content"
                         }
                     ]
                 }
@@ -869,7 +842,7 @@
                     "include": "#js-function"
                 },
                 {
-                    "include": "#object"
+                    "include": "#block"
                 },
                 {
                     "include": "#array"

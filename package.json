@@ -7,7 +7,8 @@
     "vscode": "^1.77.0"
   },
   "categories": [
-    "Programming Languages"
+    "Programming Languages",
+    "Snippets"
   ],
   "contributes": {
     "languages": [{
@@ -20,6 +21,12 @@
       "language": "surrealql",
       "scopeName": "source.surrealql",
       "path": "./syntaxes/surrealql.tmLanguage.json"
-    }]
+    }],
+    "snippets": [
+      {
+        "language": "surrealql",
+        "path": "./snippets.json"
+      }
+    ]
   }
 }

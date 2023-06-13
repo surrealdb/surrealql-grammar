@@ -33,6 +33,24 @@ function
 	const obj = {
 		test: 'cool'
 	}
+
+	const query = surrealql`
+		function() {
+			const test = surql`
+				select * from test
+				function() {
+					const test = surql`
+						select * from test
+						function() {
+							const test = surrealql`
+								select * from test
+							`;
+						}
+					`;
+				}
+			`;
+		}
+	`
 }
 
 -- Call the global custom function, receiving the returned result

@@ -17,11 +17,33 @@
       "extensions": [".surql",".surrealql"],
       "configuration": "./language-configuration.json"
     }],
-    "grammars": [{
-      "language": "surrealql",
-      "scopeName": "source.surrealql",
-      "path": "./syntaxes/surrealql.tmLanguage.json"
-    }],
+    "grammars": [
+      {
+        "language": "surrealql",
+        "scopeName": "source.surrealql",
+        "path": "./syntaxes/surrealql.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.embedded.block.javascript": "javascript"
+        }
+      },
+      {
+        "injectTo": [
+          "source.js",
+          "source.js.jsx",
+          "source.jsx",
+          "source.ts",
+          "source.tsx",
+          "source.vue",
+          "text.html.markdown",
+          "source.surrealql"
+        ],
+        "scopeName": "inline.surrealql-js-literal",
+        "path": "./syntaxes/surrealql-js-literal.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.embedded.block.surrealql": "surrealql"
+        }
+      }
+    ],
     "snippets": [
       {
         "language": "surrealql",

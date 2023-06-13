@@ -1,0 +1,22 @@
+{
+  "scopeName": "inline.surrealql-js-literal",
+  "fileTypes": [],
+  "injectionSelector": "L:source -comment -string, L:markup.fenced_code.block.markdown (meta.embedded.block.javascript, meta.embedded.block.typescript, meta.embedded.block.typescriptreact, meta.embedded.block.vue)",
+  "patterns": [
+    {
+      "include": "#sql-template-literal"
+    }
+  ],
+  "repository": {
+    "sql-template-literal": {
+      "name": "meta.embedded.block.surrealql",
+      "begin": "(surql|surrealql|(\\/\\*\\s*(?:surql|surrealql)\\s*\\*\\/))\\s*(\\.[_$[:alpha:]][_$[:alnum:]]*)?\\s*(<.+>)?(\\(.+\\))?(\\s*`)",
+      "end": "(`)",
+      "patterns": [
+        {
+          "include": "source.surrealql"
+        }
+      ]
+    }
+  }
+}

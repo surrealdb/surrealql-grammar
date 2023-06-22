@@ -19,6 +19,13 @@
     "Programming Languages",
     "Snippets"
   ],
+  "files": [
+    "syntaxes",
+    "icon.png",
+    "language-configuration.json",
+    "README.md",
+    "snippets.json"
+  ],
   "contributes": {
     "languages": [{
       "id": "surrealql",

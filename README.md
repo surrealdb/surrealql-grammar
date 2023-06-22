@@ -2,8 +2,6 @@
 
 SurrealQL is the SQL-like language used by [SurrealDB](https://surrealdb.com). This repository holds it's grammar definition, implementing the textmate-grammar specification.
 
-<br />
-
 ## Getting started
 
 The grammar is mainly written for the [Visual Studio Code](https://code.visualstudio.com/) editor. It is easiest to change the grammar there and to debug it. 

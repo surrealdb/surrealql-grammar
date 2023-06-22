@@ -3,6 +3,15 @@
   "displayName": "SurrealQL",
   "description": "Official support for the surrealql query language, used by SurrealDB!",
   "version": "0.0.1",
+  "author": {
+    "name": "SurrealDB",
+    "url": "https://surrealdb.com"
+  },
+  "homepage": "https://github.com/surrealdb/surrealql-grammar",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/surrealdb/surrealql-grammar.git"
+  },
   "engines": {
     "vscode": "^1.77.0"
   },
@@ -15,7 +24,11 @@
       "id": "surrealql",
       "aliases": ["SurrealQL", "surrealql"],
       "extensions": [".surql",".surrealql"],
-      "configuration": "./language-configuration.json"
+      "configuration": "./language-configuration.json",
+      "icon": {
+        "light": "./icon.png",
+        "dark": "./icon.png"
+      }
     }],
     "grammars": [
       {

@@ -1,4 +1,4 @@
-
-const test = surrealql`
-    SELECT * FROM test
+/* test */ ` ${test}`
+const test = /* surrealql */`
+    SELECT * FROM test ${test}
 `;

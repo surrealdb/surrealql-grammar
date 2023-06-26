@@ -742,14 +742,12 @@
         "object-key": {
             "patterns": [
                 {
-                    "begin": "\"",
-                    "end": "\":",
-                    "contentName": "meta.object-literal.key"
+                    "match": "\"[^(?:\\\")]+\":",
+                    "name": "meta.object-literal.key"
                 },
                 {
-                    "begin": "'",
-                    "end": "':",
-                    "contentName": "meta.object-literal.key"
+                    "match": "'[^(?:\\')]+':",
+                    "name": "meta.object-literal.key"
                 },
                 {
                     "match": "[a-zA-Z_0-9]+:",

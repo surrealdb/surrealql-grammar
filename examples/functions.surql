@@ -64,6 +64,7 @@ LET $person = fn::get_person('Tobie', 'Morgan Hitchcock', '2022-09-21');
 RETURN {
 	return {
 		abc: 123
+		test: "string"
 		SELECT * FROM something
 	}
 }

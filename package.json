@@ -4,6 +4,7 @@
   "description": "Official support for the surrealql query language, used by SurrealDB!",
   "version": "0.2.1",
   "publisher": "surrealdb",
+  "icon": "./icon.png",
   "author": {
     "name": "SurrealDB",
     "url": "https://surrealdb.com"

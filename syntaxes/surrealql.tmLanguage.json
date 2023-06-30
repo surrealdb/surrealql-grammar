@@ -2,7 +2,10 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "SurrealQL",
 	"scopeName": "source.surrealql",
-	"fileTypes": [".surql", ".surrealql"],
+	"fileTypes": [
+		".surql",
+		".surrealql"
+	],
 	"foldingStartMarker": "[\\{|\\[|\\(]\\s*$",
 	"foldingStopMarker": "^\\s*[\\}|\\]\\)]",
 	"patterns": [
@@ -26,42 +29,42 @@
 		}
 	],
 	"repository": {
-        "comment.line.dash": {
-            "begin": "--",
-            "end": "\\n",
-            "name": "comment.line.double-dash"
-        },
+		"comment.line.dash": {
+			"begin": "--",
+			"end": "\\n",
+			"name": "comment.line.double-dash"
+		},
 		"comment.line.slash": {
-            "begin": "//",
-            "end": "\\n",
-            "name": "comment.line.double-slash"
-        },
-        "comment.line.hash": {
-            "begin": "#",
-            "end": "\\n",
-            "name": "comment.line.number-sign"
-        },
-        "comment.block": {
-            "begin": "/\\*",
-            "end": "\\*/",
-            "name": "comment.block.surrealql"
-        },
-        "comment": {
-            "patterns": [
-                {
-                    "include": "#comment.line.dash"
-                },
-                {
-                    "include": "#comment.line.slash"
-                },
-                {
-                    "include": "#comment.line.hash"
-                },
-                {
-                    "include": "#comment.block"
-                }
-            ]
-        },
+			"begin": "//",
+			"end": "\\n",
+			"name": "comment.line.double-slash"
+		},
+		"comment.line.hash": {
+			"begin": "#",
+			"end": "\\n",
+			"name": "comment.line.number-sign"
+		},
+		"comment.block": {
+			"begin": "/\\*",
+			"end": "\\*/",
+			"name": "comment.block.surrealql"
+		},
+		"comment": {
+			"patterns": [
+				{
+					"include": "#comment.line.dash"
+				},
+				{
+					"include": "#comment.line.slash"
+				},
+				{
+					"include": "#comment.line.hash"
+				},
+				{
+					"include": "#comment.block"
+				}
+			]
+		},
 		"keywords": {
 			"patterns": [
 				{
@@ -163,6 +166,10 @@
 				{
 					"name": "keyword.control.event.surrealql",
 					"match": "\\b(EVENT|event)\\b"
+				},
+				{
+					"name": "keyword.control.explain.surrealql",
+					"match": "\\b(EXPLAIN|explain)\\b"
 				},
 				{
 					"name": "keyword.control.fetch.surrealql",
@@ -613,206 +620,206 @@
 			]
 		},
 		"var-name": {
-            "patterns": [
-                {
-                    "match": "\\$\\w+",
-                    "name": "variable.name"
-                },
-                {
-                    "match": "\\$`\\w+`",
-                    "name": "variable.name"
-                },
-                {
-                    "match": "\\$⟨\\w+⟩",
-                    "name": "variable.name"
-                }
-            ]
-        },
+			"patterns": [
+				{
+					"match": "\\$\\w+",
+					"name": "variable.name"
+				},
+				{
+					"match": "\\$`\\w+`",
+					"name": "variable.name"
+				},
+				{
+					"match": "\\$⟨\\w+⟩",
+					"name": "variable.name"
+				}
+			]
+		},
 		"number": {
-            "patterns": [
-                {
-                    "match": "\\d+\\.\\d+",
-                    "name": "constant.numeric.decimal"
-                },
-                {
-                    "match": "\\d+",
-                    "name": "constant.numeric.int"
-                }
-            ]
-        },
-        "string": {
-            "patterns": [
-                {
-                    "begin": "\"",
-                    "end": "(?<!\\\\)\"",
-                    "name": "string.quoted.double",
-                    "patterns": [
-                        {
-                            "include": "#uuid"
-                        },
-                        {
-                            "include": "#record"
-                        }
-                    ]
-                },
-                {
-                    "begin": "'",
-                    "end": "(?<!\\\\)'",
-                    "name": "string.quoted.single",
-                    "patterns": [
-                        {
-                            "include": "#uuid"
-                        },
-                        {
-                            "include": "#record"
-                        }
-                    ]
-                },
-                {
-                    "begin": "`",
-                    "end": "(?<!\\\\)`",
-                    "name": "string.quoted.other",
-                    "patterns": [
-                        {
-                            "include": "#uuid"
-                        }
-                    ]
-                }
-            ]
-        },
-        "uuid": {
-            "match": "[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}",
-            "name": "constant.other.uuid"
-        },
-        "duration": {
-            "match": "(\\d+(ns|µs|ms|s|m|h|d|w|y))+",
-            "name": "constant.other"
-        },
-        "boolean": {
-            "match": "\\b(true|TRUE|false|FALSE|True|False)\\b",
-            "name": "constant.language.bool"
-        },
-        "void-type": {
-            "match": "\\b(null|NULL|none|NONE)\\b",
-            "name": "constant.language.void"
-        },
+			"patterns": [
+				{
+					"match": "\\d+\\.\\d+",
+					"name": "constant.numeric.decimal"
+				},
+				{
+					"match": "\\d+",
+					"name": "constant.numeric.int"
+				}
+			]
+		},
+		"string": {
+			"patterns": [
+				{
+					"begin": "\"",
+					"end": "(?<!\\\\)\"",
+					"name": "string.quoted.double",
+					"patterns": [
+						{
+							"include": "#uuid"
+						},
+						{
+							"include": "#record"
+						}
+					]
+				},
+				{
+					"begin": "'",
+					"end": "(?<!\\\\)'",
+					"name": "string.quoted.single",
+					"patterns": [
+						{
+							"include": "#uuid"
+						},
+						{
+							"include": "#record"
+						}
+					]
+				},
+				{
+					"begin": "`",
+					"end": "(?<!\\\\)`",
+					"name": "string.quoted.other",
+					"patterns": [
+						{
+							"include": "#uuid"
+						}
+					]
+				}
+			]
+		},
+		"uuid": {
+			"match": "[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}",
+			"name": "constant.other.uuid"
+		},
+		"duration": {
+			"match": "(\\d+(ns|µs|ms|s|m|h|d|w|y))+",
+			"name": "constant.other"
+		},
+		"boolean": {
+			"match": "\\b(true|TRUE|false|FALSE|True|False)\\b",
+			"name": "constant.language.bool"
+		},
+		"void-type": {
+			"match": "\\b(null|NULL|none|NONE)\\b",
+			"name": "constant.language.void"
+		},
 		"array": {
-            "begin": "\\[",
-            "end": "\\]",
-            "patterns": [
-                {
-                    "include": "#array-content"
-                }
-            ]
-        },
-        "array-content": {
-            "patterns": [
-                {
-                    "include": "#value"
-                },
-                {
-                    "match": ",",
-                    "name": "punctuation.separator.array"
-                }
-            ]
-        },
-        "block": {
-            "begin": "\\{",
-            "end": "\\}",
-            "name": "surrealql.block",
-            "patterns": [
-                {
-                    "include": "#block-content"
-                }
-            ]
-        },
-        "block-content": {
-            "patterns": [
-                {
-                    "include": "#object-key"
-                },
-                {
-                    "include": "#comment"
-                },
-                {
+			"begin": "\\[",
+			"end": "\\]",
+			"patterns": [
+				{
+					"include": "#array-content"
+				}
+			]
+		},
+		"array-content": {
+			"patterns": [
+				{
+					"include": "#value"
+				},
+				{
+					"match": ",",
+					"name": "punctuation.separator.array"
+				}
+			]
+		},
+		"block": {
+			"begin": "\\{",
+			"end": "\\}",
+			"name": "surrealql.block",
+			"patterns": [
+				{
+					"include": "#block-content"
+				}
+			]
+		},
+		"block-content": {
+			"patterns": [
+				{
+					"include": "#object-key"
+				},
+				{
+					"include": "#comment"
+				},
+				{
 					"include": "$self"
 				}
-            ]
-        },
-        "object-key": {
-            "patterns": [
-                {
-                    "match": "\"[^(?:\\\")]+\":",
-                    "name": "meta.object-literal.key"
-                },
-                {
-                    "match": "'[^(?:\\')]+':",
-                    "name": "meta.object-literal.key"
-                },
-                {
-                    "match": "[a-zA-Z_0-9]+:",
-                    "name": "meta.object-literal.key"
-                }
-            ]
-        },
-        "record": {
-            "patterns": [
-                {
-                    "match": "([a-zA-Z0-9_]+):⟨([^⟩]+)⟩",
-                    "captures": {
-                        "1": {
-                            "name": "entity.name.class"
-                        },
-                        "2": {
-                            "name": "entity.other.attribute-name"
-                        }
-                    },
-                    "name": "entity.name"
-                },
-                {
-                    "match": "([a-zA-Z0-9_]+):`([^`]+)`",
-                    "captures": {
-                        "1": {
-                            "name": "entity.name.class"
-                        },
-                        "2": {
-                            "name": "entity.other.attribute-name"
-                        }
-                    },
-                    "name": "entity.name"
-                },
-                {
-                    "match": "([a-zA-Z0-9_]+):([a-zA-Z0-9_]+)",
-                    "captures": {
-                        "1": {
-                            "name": "entity.name.class"
-                        },
-                        "2": {
-                            "name": "entity.other.attribute-name"
-                        }
-                    },
-                    "name": "entity.name"
-                },
-                {
-                    "begin": "([a-zA-Z0-9_]+):\\[",
-                    "end": "\\]",
-                    "patterns": [
-                        {
-                            "include": "#array-content"
-                        }
-                    ]
-                },
-                {
-                    "begin": "([a-zA-Z0-9_]+):\\{",
-                    "end": "\\}",
-                    "patterns": [
-                        {
-                            "include": "#block-content"
-                        }
-                    ]
-                }
-            ]
-        },
+			]
+		},
+		"object-key": {
+			"patterns": [
+				{
+					"match": "\"[^(?:\\\")]+\":",
+					"name": "meta.object-literal.key"
+				},
+				{
+					"match": "'[^(?:\\')]+':",
+					"name": "meta.object-literal.key"
+				},
+				{
+					"match": "[a-zA-Z_0-9]+:",
+					"name": "meta.object-literal.key"
+				}
+			]
+		},
+		"record": {
+			"patterns": [
+				{
+					"match": "([a-zA-Z0-9_]+):⟨([^⟩]+)⟩",
+					"captures": {
+						"1": {
+							"name": "entity.name.class"
+						},
+						"2": {
+							"name": "entity.other.attribute-name"
+						}
+					},
+					"name": "entity.name"
+				},
+				{
+					"match": "([a-zA-Z0-9_]+):`([^`]+)`",
+					"captures": {
+						"1": {
+							"name": "entity.name.class"
+						},
+						"2": {
+							"name": "entity.other.attribute-name"
+						}
+					},
+					"name": "entity.name"
+				},
+				{
+					"match": "([a-zA-Z0-9_]+):([a-zA-Z0-9_]+)",
+					"captures": {
+						"1": {
+							"name": "entity.name.class"
+						},
+						"2": {
+							"name": "entity.other.attribute-name"
+						}
+					},
+					"name": "entity.name"
+				},
+				{
+					"begin": "([a-zA-Z0-9_]+):\\[",
+					"end": "\\]",
+					"patterns": [
+						{
+							"include": "#array-content"
+						}
+					]
+				},
+				{
+					"begin": "([a-zA-Z0-9_]+):\\{",
+					"end": "\\}",
+					"patterns": [
+						{
+							"include": "#block-content"
+						}
+					]
+				}
+			]
+		},
 		"query": {
 			"patterns": [
 				{
@@ -832,45 +839,45 @@
 				}
 			]
 		},
-        "value": {
-            "patterns": [
-                {
-                    "include": "#comment"
-                },
-                {
-                    "include": "#js-function"
-                },
-                {
-                    "include": "#block"
-                },
-                {
-                    "include": "#array"
-                },
-                {
-                    "include": "#var-name"
-                },
-                {
-                    "include": "#boolean"
-                },
-                {
-                    "include": "#string"
-                },
-                {
-                    "include": "#void-type"
-                },
-                {
-                    "include": "#duration"
-                },
-                {
-                    "include": "#number"
-                },
-                {
-                    "include": "#record"
-                },
+		"value": {
+			"patterns": [
+				{
+					"include": "#comment"
+				},
+				{
+					"include": "#js-function"
+				},
+				{
+					"include": "#block"
+				},
+				{
+					"include": "#array"
+				},
+				{
+					"include": "#var-name"
+				},
+				{
+					"include": "#boolean"
+				},
+				{
+					"include": "#string"
+				},
+				{
+					"include": "#void-type"
+				},
+				{
+					"include": "#duration"
+				},
+				{
+					"include": "#number"
+				},
+				{
+					"include": "#record"
+				},
 				{
 					"include": "#subquery"
 				}
-            ]
-        }
+			]
+		}
 	}
 }

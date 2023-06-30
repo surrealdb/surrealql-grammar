@@ -558,6 +558,15 @@
 				{
 					"name": "keyword.operator.devide.surrealql",
 					"match": "\\/|÷"
+				},
+				{
+					"name": "keyword.operator.matches.surrealql",
+					"match": "@([0-9]+)?@",
+					"captures": {
+						"1": {
+							"name": "constant.numeric.int"
+						}
+					}
 				}
 			]
 		},

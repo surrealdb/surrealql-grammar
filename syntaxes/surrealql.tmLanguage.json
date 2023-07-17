@@ -671,11 +671,11 @@
 		"number": {
 			"patterns": [
 				{
-					"match": "\\d+\\.\\d+",
+					"match": "\\b\\d+\\.\\d+\\b",
 					"name": "constant.numeric.decimal"
 				},
 				{
-					"match": "\\d+",
+					"match": "\\b\\d+\\b",
 					"name": "constant.numeric.int"
 				}
 			]

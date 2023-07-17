@@ -72,6 +72,14 @@
 					"match": "\\b(AFTER|after)\\b"
 				},
 				{
+					"name": "keyword.control.analyze.surrealql",
+					"match": "\\b(ANALYZE|analyze)\\b"
+				},
+				{
+					"name": "keyword.control.analyzer.surrealql",
+					"match": "\\b(ANALYZER|analyzer)\\b"
+				},
+				{
 					"name": "keyword.control.asc.surrealql",
 					"match": "\\b(ASC|asc)\\b"
 				},
@@ -90,6 +98,10 @@
 				{
 					"name": "keyword.control.begin.surrealql",
 					"match": "\\b(BEGIN|begin)(?: +(TRANSACTION|transaction))?\\b"
+				},
+				{
+					"name": "keyword.control.bm25.surrealql",
+					"match": "\\b(BM25|bm25)\\b"
 				},
 				{
 					"name": "keyword.control.cancel.surrealql",
@@ -180,6 +192,10 @@
 					"match": "\\b(FIELD|field)\\b"
 				},
 				{
+					"name": "keyword.control.filters.surrealql",
+					"match": "\\b(FILTERS|filters)\\b"
+				},
+				{
 					"name": "keyword.control.for.surrealql",
 					"match": "\\b(FOR|for)\\b"
 				},
@@ -194,6 +210,10 @@
 				{
 					"name": "keyword.control.group.surrealql",
 					"match": "\\b(GROUP|group)(?: +(BY|by))?\\b"
+				},
+				{
+					"name": "keyword.control.highlights.surrealql",
+					"match": "\\b(HIGHLIGHTS|highlights)\\b"
 				},
 				{
 					"name": "keyword.control.hs256.surrealql",
@@ -336,8 +356,8 @@
 					"match": "\\b(SCOPE|scope)\\b"
 				},
 				{
-					"name": "keyword.control.scope.surrealql",
-					"match": "\\b(SCOPE|scope)\\b"
+					"name": "keyword.control.search.surrealql",
+					"match": "\\b(SEARCH|search)\\b"
 				},
 				{
 					"name": "keyword.control.select.surrealql",
@@ -374,6 +394,10 @@
 				{
 					"name": "keyword.control.table.surrealql",
 					"match": "\\b(TABLE|table)\\b"
+				},
+				{
+					"name": "keyword.control.tokenizers.surrealql",
+					"match": "\\b(TOKENIZERS|tokenizers)\\b"
 				},
 				{
 					"name": "keyword.control.then.surrealql",
@@ -605,7 +629,7 @@
 			]
 		},
 		"function": {
-			"begin": "(?=((?:\\b\\w+(?:::\\b\\w+)+)|count|rand)\\s*\\()",
+			"begin": "(?=((?:\\b\\w+(?:::\\b\\w+)+)|count|rand|bm25|BM25)\\s*\\()",
 			"end": "(?<=\\))",
 			"beginCaptures": {
 				"1": {

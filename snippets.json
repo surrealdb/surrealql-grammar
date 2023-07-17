@@ -191,192 +191,198 @@
             "DELETE $1;"
         ]
     },
-	"Define a namespace": {
-		"prefix": "define ns",
-		"body": [
-			"DEFINE NAMESPACE $1;"
-		]
-	},
-	"Define a database": {
-		"prefix": "define db",
-		"body": [
-			"DEFINE DATABASE $1;"
-		]
-	},
-	"Define a login": {
-		"prefix": "define login",
-		"body": [
-			"DEFINE LOGIN $1 ON $2 $3;"
-		]
-	},
-	"Define a token": {
-		"prefix": "define token",
-		"body": [
-			"DEFINE TOKEN $1 ON $2 TYPE $3 VALUE $4;"
-		]
-	},
-	"Define a scope": {
-		"prefix": "define scope",
-		"body": [
-			"DEFINE SCOPE $1",
+    "Define a namespace": {
+        "prefix": "define ns",
+        "body": [
+            "DEFINE NAMESPACE $1;"
+        ]
+    },
+    "Define a database": {
+        "prefix": "define db",
+        "body": [
+            "DEFINE DATABASE $1;"
+        ]
+    },
+    "Define a login": {
+        "prefix": "define login",
+        "body": [
+            "DEFINE LOGIN $1 ON $2 $3;"
+        ]
+    },
+    "Define a token": {
+        "prefix": "define token",
+        "body": [
+            "DEFINE TOKEN $1 ON $2 TYPE $3 VALUE $4;"
+        ]
+    },
+    "Define a scope": {
+        "prefix": "define scope",
+        "body": [
+            "DEFINE SCOPE $1",
             "\tSESSION $2",
             "\tSIGNIN ( $3 )",
             "\tSIGNUP ( $4 )",
             ";"
-		]
-	},
-	"Define a schemafull table": {
-		"prefix": "define table schemafull",
-		"body": [
-			"DEFINE TABLE $1 SCHEMAFULL;"
-		]
-	},
-	"Define a schemaless table": {
-		"prefix": "define table schemaless",
-		"body": [
-			"DEFINE TABLE $1 SCHEMALESS;"
-		]
-	},
-	"Define a foreign table": {
-		"prefix": "define table as",
-		"body": [
-			"DEFINE TABLE $1 AS SELECT $2 FROM $3;"
-		]
-	},
-	"Define an event": {
-		"prefix": "define event",
-		"body": [
-			"DEFINE EVENT $1 ON $2 WHEN ($3) THEN {",
+        ]
+    },
+    "Define a schemafull table": {
+        "prefix": "define table schemafull",
+        "body": [
+            "DEFINE TABLE $1 SCHEMAFULL;"
+        ]
+    },
+    "Define a schemaless table": {
+        "prefix": "define table schemaless",
+        "body": [
+            "DEFINE TABLE $1 SCHEMALESS;"
+        ]
+    },
+    "Define a foreign table": {
+        "prefix": "define table as",
+        "body": [
+            "DEFINE TABLE $1 AS SELECT $2 FROM $3;"
+        ]
+    },
+    "Define an event": {
+        "prefix": "define event",
+        "body": [
+            "DEFINE EVENT $1 ON $2 WHEN ($3) THEN {",
             "\t$4",
             "};"
-		]
-	},
-	"Define a function": {
-		"prefix": "define function",
-		"body": [
-			"DEFINE FUNCTION fn::$1($2) {",
+        ]
+    },
+    "Define a function": {
+        "prefix": "define function",
+        "body": [
+            "DEFINE FUNCTION fn::$1($2) {",
             "\t$3",
             "};"
-		]
-	},
-	"Define a field": {
-		"prefix": "define field",
-		"body": [
-			"DEFINE FIELD $1 ON $2 TYPE $3;"
-		]
-	},
-	"Define a unique index": {
-		"prefix": "define index unique",
-		"body": [
-			"DEFINE INDEX $1 ON $2 FIELDS $3 UNIQUE;"
-		]
-	},
-	"Define a global parameter": {
-		"prefix": "define param",
-		"body": [
-			"DEFINE PARAM \\$$1 VALUE $2;"
-		]
-	},
-	"Remove a namespace": {
-		"prefix": "remove ns",
-		"body": [
-			"REMOVE NAMESPACE $1;"
-		]
-	},
-	"Remove a database": {
-		"prefix": "remove db",
-		"body": [
-			"REMOVE DATABASE $1;"
-		]
-	},
-	"Remove a login": {
-		"prefix": "remove login",
-		"body": [
-			"REMOVE LOGIN $1 ON $2;"
-		]
-	},
-	"Remove a token": {
-		"prefix": "remove token",
-		"body": [
-			"REMOVE TOKEN $1 ON $2;"
-		]
-	},
-	"Remove a scope": {
-		"prefix": "remove scope",
-		"body": [
-			"REMOVE SCOPE $1;"
-		]
-	},
-	"Remove a table": {
-		"prefix": "remove table",
-		"body": [
-			"REMOVE TABLE $1;"
-		]
-	},
-	"Remove an event": {
-		"prefix": "remove event",
-		"body": [
-			"REMOVE EVENT $1 ON $2;"
-		]
-	},
-	"Remove a function": {
-		"prefix": "remove function",
-		"body": [
-			"REMOVE FUNCTION fn::$1;"
-		]
-	},
-	"Remove a field": {
-		"prefix": "remove field",
-		"body": [
-			"DEFINE FIELD $1 ON $2;"
-		]
-	},
-	"Remove an index": {
-		"prefix": "remove index",
-		"body": [
-			"REMOVE INDEX $1 ON $2;"
-		]
-	},
-	"Remove a global parameter": {
-		"prefix": "remove param",
-		"body": [
-			"REMOVE PARAM \\$$1;"
-		]
-	},
-	"Info for KV": {
-		"prefix": "info kv",
-		"body": [
-			"INFO FOR KV;"
-		]
-	},
-	"Info for a namespace": {
-		"prefix": "info ns",
-		"body": [
-			"INFO FOR NS $1;"
-		]
-	},
-	"Info for a database": {
-		"prefix": "info db",
-		"body": [
-			"INFO FOR DB $1;"
-		]
-	},
-	"Info for a scope": {
-		"prefix": "info scope",
-		"body": [
-			"INFO FOR SCOPE $1;"
-		]
-	},
-	"Info for a table": {
-		"prefix": "info table",
-		"body": [
-			"INFO FOR TABLE $1;"
-		]
-	},
-	"Sleep for X amount of time": {
-		"prefix": "sleep",
-		"body": [
-			"SLEEP $1;"
-		]
-	}
+        ]
+    },
+    "Define a field": {
+        "prefix": "define field",
+        "body": [
+            "DEFINE FIELD $1 ON $2 TYPE $3;"
+        ]
+    },
+    "Define a unique index": {
+        "prefix": "define index unique",
+        "body": [
+            "DEFINE INDEX $1 ON $2 FIELDS $3 UNIQUE;"
+        ]
+    },
+    "Define a search index": {
+        "prefix": "define index search",
+        "body": [
+            "DEFINE INDEX $1 ON $2 FIELDS $3 SEARCH ANALYZER BM25 HIGHLIGHTS;"
+        ]
+    },
+    "Define a global parameter": {
+        "prefix": "define param",
+        "body": [
+            "DEFINE PARAM \\$$1 VALUE $2;"
+        ]
+    },
+    "Remove a namespace": {
+        "prefix": "remove ns",
+        "body": [
+            "REMOVE NAMESPACE $1;"
+        ]
+    },
+    "Remove a database": {
+        "prefix": "remove db",
+        "body": [
+            "REMOVE DATABASE $1;"
+        ]
+    },
+    "Remove a login": {
+        "prefix": "remove login",
+        "body": [
+            "REMOVE LOGIN $1 ON $2;"
+        ]
+    },
+    "Remove a token": {
+        "prefix": "remove token",
+        "body": [
+            "REMOVE TOKEN $1 ON $2;"
+        ]
+    },
+    "Remove a scope": {
+        "prefix": "remove scope",
+        "body": [
+            "REMOVE SCOPE $1;"
+        ]
+    },
+    "Remove a table": {
+        "prefix": "remove table",
+        "body": [
+            "REMOVE TABLE $1;"
+        ]
+    },
+    "Remove an event": {
+        "prefix": "remove event",
+        "body": [
+            "REMOVE EVENT $1 ON $2;"
+        ]
+    },
+    "Remove a function": {
+        "prefix": "remove function",
+        "body": [
+            "REMOVE FUNCTION fn::$1;"
+        ]
+    },
+    "Remove a field": {
+        "prefix": "remove field",
+        "body": [
+            "DEFINE FIELD $1 ON $2;"
+        ]
+    },
+    "Remove an index": {
+        "prefix": "remove index",
+        "body": [
+            "REMOVE INDEX $1 ON $2;"
+        ]
+    },
+    "Remove a global parameter": {
+        "prefix": "remove param",
+        "body": [
+            "REMOVE PARAM \\$$1;"
+        ]
+    },
+    "Info for KV": {
+        "prefix": "info kv",
+        "body": [
+            "INFO FOR KV;"
+        ]
+    },
+    "Info for a namespace": {
+        "prefix": "info ns",
+        "body": [
+            "INFO FOR NS $1;"
+        ]
+    },
+    "Info for a database": {
+        "prefix": "info db",
+        "body": [
+            "INFO FOR DB $1;"
+        ]
+    },
+    "Info for a scope": {
+        "prefix": "info scope",
+        "body": [
+            "INFO FOR SCOPE $1;"
+        ]
+    },
+    "Info for a table": {
+        "prefix": "info table",
+        "body": [
+            "INFO FOR TABLE $1;"
+        ]
+    },
+    "Sleep for X amount of time": {
+        "prefix": "sleep",
+        "body": [
+            "SLEEP $1;"
+        ]
+    }
 }

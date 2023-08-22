@@ -772,9 +772,6 @@
 					"include": "#object-key"
 				},
 				{
-					"include": "#comment"
-				},
-				{
 					"include": "$self"
 				}
 			]
@@ -782,15 +779,15 @@
 		"object-key": {
 			"patterns": [
 				{
-					"match": "\"[^(?:\\\")]+\":",
+					"match": "\"[^(?:\\\")]+\":(?!:)",
 					"name": "meta.object-literal.key"
 				},
 				{
-					"match": "'[^(?:\\')]+':",
+					"match": "'[^(?:\\')]+':(?!:)",
 					"name": "meta.object-literal.key"
 				},
 				{
-					"match": "[a-zA-Z_0-9]+:",
+					"match": "[a-zA-Z_0-9]+:(?!:)",
 					"name": "meta.object-literal.key"
 				}
 			]

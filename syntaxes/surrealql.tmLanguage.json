@@ -104,6 +104,10 @@
 					"match": "\\b(BM25|bm25)\\b"
 				},
 				{
+					"name": "keyword.control.break.surrealql",
+					"match": "\\b(BREAK|break)\\b"
+				},
+				{
 					"name": "keyword.control.cancel.surrealql",
 					"match": "\\b(CANCEL|cancel)(?: +(TRANSACTION|transaction))?\\b"
 				},
@@ -116,8 +120,16 @@
 					"match": "\\b(COMMIT|commit)(?: +(TRANSACTION|transaction))?\\b"
 				},
 				{
+					"name": "keyword.control.contains.surrealql",
+					"match": "\\b(CONTAINS|contains)\\b"
+				},
+				{
 					"name": "keyword.control.content.surrealql",
 					"match": "\\b(CONTENT|content)\\b"
+				},
+				{
+					"name": "keyword.control.continue.surrealql",
+					"match": "\\b(CONTINUE|continue)\\b"
 				},
 				{
 					"name": "keyword.control.create.surrealql",
@@ -130,6 +142,10 @@
 				{
 					"name": "keyword.control.db.surrealql",
 					"match": "\\b(DB|db)\\b"
+				},
+				{
+					"name": "keyword.control.default.surrealql",
+					"match": "\\b(DEFAULT|default)\\b"
 				},
 				{
 					"name": "keyword.control.define.surrealql",
@@ -198,6 +214,10 @@
 				{
 					"name": "keyword.control.for.surrealql",
 					"match": "\\b(FOR|for)\\b"
+				},
+				{
+					"name": "keyword.control.full.surrealql",
+					"match": "\\b(FULL|full)\\b"
 				},
 				{
 					"name": "keyword.control.from.surrealql",
@@ -276,6 +296,10 @@
 					"match": "\\b(NAMESPACE|namespace)\\b"
 				},
 				{
+					"name": "keyword.control.noindex.surrealql",
+					"match": "\\b(NOINDEX|noindex)\\b"
+				},
+				{
 					"name": "keyword.control.ns.surrealql",
 					"match": "\\b(NS|ns)\\b"
 				},
@@ -330,6 +354,14 @@
 				{
 					"name": "keyword.control.return.surrealql",
 					"match": "\\b(RETURN|return)\\b"
+				},
+				{
+					"name": "keyword.control.roles.surrealql",
+					"match": "\\b(ROLES|roles)\\b"
+				},
+				{
+					"name": "keyword.control.root.surrealql",
+					"match": "\\b(ROOT|root)\\b"
 				},
 				{
 					"name": "keyword.control.rs256.surrealql",
@@ -408,6 +440,10 @@
 					"match": "\\b(TIMEOUT|timeout)\\b"
 				},
 				{
+					"name": "keyword.control.throw.surrealql",
+					"match": "\\b(THROW|throw)\\b"
+				},
+				{
 					"name": "keyword.control.token.surrealql",
 					"match": "\\b(TOKEN|token)\\b"
 				},
@@ -428,6 +464,10 @@
 					"match": "\\b(USE|use)\\b"
 				},
 				{
+					"name": "keyword.control.user.surrealql",
+					"match": "\\b(USER|user)\\b"
+				},
+				{
 					"name": "keyword.control.value.surrealql",
 					"match": "\\b(VALUE|value)\\b"
 				},
@@ -438,6 +478,10 @@
 				{
 					"name": "keyword.control.version.surrealql",
 					"match": "\\b(VERSION|version)\\b"
+				},
+				{
+					"name": "keyword.control.with.surrealql",
+					"match": "\\b(WITH|with)\\b"
 				},
 				{
 					"name": "keyword.control.when.surrealql",

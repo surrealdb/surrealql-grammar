@@ -2,7 +2,7 @@
   "name": "surrealql",
   "displayName": "SurrealQL",
   "description": "Official support for the surrealql query language, used by SurrealDB!",
-  "version": "0.2.3",
+  "version": "0.2.5",
   "publisher": "surrealdb",
   "icon": "./icon.png",
   "author": {

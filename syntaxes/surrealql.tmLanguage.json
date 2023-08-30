@@ -65,6 +65,23 @@
 				}
 			]
 		},
+		"type": {
+			"match": "[a-z]*<[a-z][a-z0-9<>|, ]+[a-z0-9>]+>",
+			"name": "test",
+			"captures": {
+				"0": {
+					"patterns": [
+						{
+							"match": "<|>",
+							"name": "entity.name.type.surrealql"
+						},
+						{
+							"include": "#number"
+						}
+					]
+				}
+			}
+		},
 		"keywords": {
 			"patterns": [
 				{
@@ -601,7 +618,7 @@
 				},
 				{
 					"name": "keyword.operator.less.surrealql",
-					"match": "<"
+					"match": "<(?!-|[a-z]+[^:])"
 				},
 				{
 					"name": "keyword.operator.more-or-equal.surrealql",
@@ -609,7 +626,7 @@
 				},
 				{
 					"name": "keyword.operator.more.surrealql",
-					"match": ">"
+					"match": "(?<!-)>"
 				},
 				{
 					"name": "keyword.operator.add.surrealql",
@@ -715,11 +732,11 @@
 		"number": {
 			"patterns": [
 				{
-					"match": "\\b\\d+\\.\\d+\\b",
+					"match": "\\b\\d+\\.\\d+(?:f|dec)?\\b",
 					"name": "constant.numeric.decimal"
 				},
 				{
-					"match": "\\b\\d+\\b",
+					"match": "\\b\\d+(?:f|dec)?\\b",
 					"name": "constant.numeric.int"
 				}
 			]
@@ -729,44 +746,28 @@
 				{
 					"begin": "\"",
 					"end": "(?<!\\\\)\"",
-					"name": "string.quoted.double",
-					"patterns": [
-						{
-							"include": "#uuid"
-						},
-						{
-							"include": "#record"
-						}
-					]
+					"name": "string.quoted.double"
 				},
 				{
 					"begin": "'",
 					"end": "(?<!\\\\)'",
-					"name": "string.quoted.single",
-					"patterns": [
-						{
-							"include": "#uuid"
-						},
-						{
-							"include": "#record"
-						}
-					]
-				},
-				{
-					"begin": "`",
-					"end": "(?<!\\\\)`",
-					"name": "string.quoted.other",
-					"patterns": [
-						{
-							"include": "#uuid"
-						}
-					]
+					"name": "string.quoted.single"
 				}
 			]
 		},
-		"uuid": {
-			"match": "[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}",
-			"name": "constant.other.uuid"
+		"ident": {
+			"patterns": [
+				{
+					"begin": "`",
+					"end": "(?<!\\\\)`",
+					"name": "support.type.property-name"
+				},
+				{
+					"begin": "⟨",
+					"end": "(?<!\\\\)⟩",
+					"name": "support.type.property-name"
+				}
+			]
 		},
 		"duration": {
 			"match": "(\\d+(ns|µs|ms|s|m|h|d|w|y))+",
@@ -813,10 +814,10 @@
 		"block-content": {
 			"patterns": [
 				{
-					"include": "#object-key"
+					"include": "$self"
 				},
 				{
-					"include": "$self"
+					"include": "#object-key"
 				}
 			]
 		},
@@ -922,6 +923,9 @@
 					"include": "#js-function"
 				},
 				{
+					"include": "#function"
+				},
+				{
 					"include": "#block"
 				},
 				{
@@ -937,19 +941,25 @@
 					"include": "#string"
 				},
 				{
+					"include": "#ident"
+				},
+				{
 					"include": "#void-type"
 				},
 				{
-					"include": "#duration"
+					"include": "#number"
 				},
 				{
-					"include": "#number"
+					"include": "#duration"
 				},
 				{
 					"include": "#record"
 				},
 				{
 					"include": "#subquery"
+				},
+				{
+					"include": "#type"
 				}
 			]
 		}

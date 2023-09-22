@@ -19,13 +19,13 @@
 			"include": "#function"
 		},
 		{
-			"include": "#keywords"
-		},
-		{
 			"include": "#operators"
 		},
 		{
 			"include": "#value"
+		},
+		{
+			"include": "#keywords"
 		}
 	],
 	"repository": {

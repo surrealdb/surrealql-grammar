@@ -117,8 +117,16 @@ DEFINE INDEX page_code ON page FIELDS code SEARCH ANALYZER simple BM25(1.2,0.75)
 -- Ensure that function names don't get mistaken for object keys :)
 RETURN {
 	RETURN string::lowercase("ABC");
-}
+};
 
+-- Make sure that object keys do not get highlighted as keywords, constants, etc...
+-- Exception to the rule is strings
+RETURN {
+	select: 123,
+	true: false,
+	"double": "quoted",
+	'single': 'quoted'
+};
 
 
 

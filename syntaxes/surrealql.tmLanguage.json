@@ -814,25 +814,28 @@
 		"block-content": {
 			"patterns": [
 				{
-					"include": "$self"
+					"include": "#string"
 				},
 				{
 					"include": "#object-key"
+				},
+				{
+					"include": "$self"
 				}
 			]
 		},
 		"object-key": {
 			"patterns": [
 				{
-					"match": "\"[^(?:\\\")]+\":(?!:)",
-					"name": "meta.object-literal.key"
+					"match": "\"[^(?:\\\")]+\"(?=:(?!:))",
+					"name": "string.quoted.double"
 				},
 				{
-					"match": "'[^(?:\\')]+':(?!:)",
-					"name": "meta.object-literal.key"
+					"match": "'[^(?:\\')]+'(?=:(?!:))",
+					"name": "string.quoted.single"
 				},
 				{
-					"match": "[a-zA-Z_0-9]+:(?!:)",
+					"match": "[{,]? *([a-zA-Z_0-9]+)(?=:(?!:))",
 					"name": "meta.object-literal.key"
 				}
 			]

@@ -12,9 +12,17 @@
       "name": "meta.embedded.block.surrealql",
       "begin": "(surql|surrealql|(\\/\\*\\s*(?:surql|surrealql)\\s*\\*\\/))\\s*(\\.[_$[:alpha:]][_$[:alnum:]]*)?\\s*(<.+>)?(\\(.+\\))?(\\s*`)",
       "end": "(`)",
-      "captures": {
+      "beginCaptures": {
         "2": {
           "name": "comment.block.js"
+        },
+        "6": {
+          "name": "string.template.js"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "string.template.js"
         }
       },
       "patterns": [
@@ -23,13 +31,13 @@
           "end": "(?<=(}))",
           "name": "meta.template.expression.js",
           "beginCaptures": {
-            "2": {
-              "name": "punctuation.defition.template-expression.begin.js"
+            "1": {
+              "name": "punctuation.definition.template-expression.begin.js"
             }
           },
           "endCaptures": {
-            "2": {
-              "name": "punctuation.defition.template-expression.end.js"
+            "1": {
+              "name": "punctuation.definition.template-expression.end.js"
             }
           },
           "patterns": [

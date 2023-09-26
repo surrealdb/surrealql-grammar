@@ -129,8 +129,20 @@
 					"match": "\\b(CANCEL|cancel)(?: +(TRANSACTION|transaction))?\\b"
 				},
 				{
+					"name": "keyword.control.changefeed.surrealql",
+					"match": "\\b(CHANGEFEED|changefeed)\\b"
+				},
+				{
+					"name": "keyword.control.changes.surrealql",
+					"match": "\\b(CHANGES|changes)\\b"
+				},
+				{
 					"name": "keyword.control.columns.surrealql",
 					"match": "\\b(COLUMNS|columns)\\b"
+				},
+				{
+					"name": "keyword.control.comment.surrealql",
+					"match": "\\b(COMMENT|comment)\\b"
 				},
 				{
 					"name": "keyword.control.commit.surrealql",
@@ -269,6 +281,10 @@
 					"match": "\\b(IF|if)\\b"
 				},
 				{
+					"name": "keyword.control.in.surrealql",
+					"match": "\\b(IN|in)\\b"
+				},
+				{
 					"name": "keyword.control.index.surrealql",
 					"match": "\\b(INDEX|index)\\b"
 				},
@@ -321,6 +337,10 @@
 					"match": "\\b(NS|ns)\\b"
 				},
 				{
+					"name": "keyword.control.omit.surrealql",
+					"match": "\\b(OMIT|omit)\\b"
+				},
+				{
 					"name": "keyword.control.on-duplicate-key-update.surrealql",
 					"match": "\\b(ON +DUPLICATE +KEY +UPDATE|on +duplicate +key +update)\\b"
 				},
@@ -329,8 +349,16 @@
 					"match": "\\b(ON|on)\\b"
 				},
 				{
+					"name": "keyword.control.only.surrealql",
+					"match": "\\b(ONLY|only)\\b"
+				},
+				{
 					"name": "keyword.control.order.surrealql",
 					"match": "\\b(ORDER|order)(?: +(BY|by))?\\b"
+				},
+				{
+					"name": "keyword.control.param.surrealql",
+					"match": "\\b(PARAM|param)\\b"
 				},
 				{
 					"name": "keyword.control.passhash.surrealql",
@@ -421,12 +449,20 @@
 					"match": "\\b(SET|set)\\b"
 				},
 				{
+					"name": "keyword.control.show.surrealql",
+					"match": "\\b(SHOW|show)\\b"
+				},
+				{
 					"name": "keyword.control.signin.surrealql",
 					"match": "\\b(SIGNIN|signin)\\b"
 				},
 				{
 					"name": "keyword.control.signup.surrealql",
 					"match": "\\b(SIGNUP|signup)\\b"
+				},
+				{
+					"name": "keyword.control.since.surrealql",
+					"match": "\\b(SINCE|since)\\b"
 				},
 				{
 					"name": "keyword.control.sleep.surrealql",
@@ -471,6 +507,10 @@
 				{
 					"name": "keyword.control.unique.surrealql",
 					"match": "\\b(UNIQUE|unique)\\b"
+				},
+				{
+					"name": "keyword.control.unset.surrealql",
+					"match": "\\b(UNSET|unset)\\b"
 				},
 				{
 					"name": "keyword.control.update.surrealql",

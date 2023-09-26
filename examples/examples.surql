@@ -119,6 +119,13 @@ RETURN {
 	RETURN string::lowercase("ABC");
 };
 
+-- Ensure that record IDs are highlighted properly
+RETURN {
+	test: 123,
+	test:123,
+	test: test:123
+};
+
 -- Make sure that object keys do not get highlighted as keywords, constants, etc...
 -- Exception to the rule is strings
 RETURN {
@@ -128,6 +135,8 @@ RETURN {
 	'single': 'quoted'
 };
 
+-- And one big complex single line object to round it off
+RETURN { test: 123, test:123, test: test:123, 'single': 'quote', "double": "quote", func: string::lowercase("ABC") };
 
 
 ###############################################

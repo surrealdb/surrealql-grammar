@@ -802,7 +802,7 @@
 			]
 		},
 		"block": {
-			"begin": "\\{",
+			"begin": "(?<=\\{)",
 			"end": "\\}",
 			"name": "surrealql.block",
 			"patterns": [
@@ -827,16 +827,28 @@
 		"object-key": {
 			"patterns": [
 				{
-					"match": "\"[^(?:\\\")]+\"(?=:(?!:))",
-					"name": "string.quoted.double"
+					"match": "(?:^|{|,)[ \t]*(\"[^(?:\\\")]+\")(?=:(?!:))",
+					"captures": {
+						"1": {
+							"name": "string.quoted.double"
+						}
+					}
 				},
 				{
-					"match": "'[^(?:\\')]+'(?=:(?!:))",
-					"name": "string.quoted.single"
+					"match": "(?:^|{|,)[ \t]*('[^(?:\\')]+')(?=:(?!:))",
+					"captures": {
+						"1": {
+							"name": "string.quoted.single"
+						}
+					}
 				},
 				{
-					"match": "[{,]? *([a-zA-Z_0-9]+)(?=:(?!:))",
-					"name": "meta.object-literal.key"
+					"match": "(^|\\{|\\,)[ \t]*([a-zA-Z_0-9]+)(?=:(?!:))",
+					"captures": {
+						"2": {
+							"name": "meta.object-literal.key"
+						}
+					}
 				}
 			]
 		},

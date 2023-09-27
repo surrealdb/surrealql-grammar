@@ -138,6 +138,10 @@ RETURN {
 -- And one big complex single line object to round it off
 RETURN { test: 123, test:123, test: test:123, 'single': 'quote', "double": "quote", func: string::lowercase("ABC") };
 
+-- Some types
+DEFINE FIELD a ON a TYPE array;
+DEFINE FIELD b ON b TYPE array<number, 5>;
+DEFINE FIELD c ON c TYPE array<record<table_NAME> | null, 10>;
 
 ###############################################
 ### lib/test.surql FROM surrealdb/surrealdb ### 

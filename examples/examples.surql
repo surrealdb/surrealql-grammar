@@ -283,3 +283,6 @@ VERSION '2019-01-01T08:00:00Z'
 TIMEOUT 2w;
 
 record:⟨another id field⟩;
+
+SELECT * FROM user_test:tdpc8hw93idfnlmy3825
+WHERE current_tokens.refresh[WHERE expiry > time::now()];

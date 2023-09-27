@@ -833,7 +833,7 @@
 		"array-content": {
 			"patterns": [
 				{
-					"include": "#value"
+					"include": "$self"
 				},
 				{
 					"match": ",",

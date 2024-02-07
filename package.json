@@ -73,6 +73,16 @@
         "embeddedLanguages": {
           "meta.embedded.block.surrealql": "surrealql"
         }
+      },
+      {
+        "injectTo": [
+          "source.rust"
+        ],
+        "scopeName": "inline.surrealql-rs-string",
+        "path": "./syntaxes/surrealql-rs-string.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.embedded.block.surrealql": "surrealql"
+        }
       }
     ],
     "snippets": [

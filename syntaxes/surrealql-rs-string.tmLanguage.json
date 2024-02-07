@@ -1,0 +1,44 @@
+{
+  "scopeName": "inline.surrealql-rs-string",
+  "fileTypes": ["rs"],
+  "injectionSelector": ["L:source -comment -string"],
+  "patterns": [
+    {
+      "include": "#sql-rs-string-comment"
+    }
+  ],
+  "repository": {
+    "sql-rs-string-comment": {
+      "name": "meta.embedded.block.surrealql",
+      "begin": "(b?r)(#*)(\")(--\\s*(surql|surrealql))",
+      "end": "(\")(\\2)",
+      "beginCaptures": {
+        "1": {
+          "name": "string.quoted.byte.raw.rust"
+        },
+        "2": {
+          "name": "string.raw.rust"
+        },
+        "3": {
+          "name": "string.rust"
+        },
+        "4": {
+          "name": "comment.sql"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "string.rust"
+        },
+        "2": {
+          "name": "string.raw.rust"
+        }
+      },
+      "patterns": [
+        {
+          "include": "source.surrealql"
+        }
+      ]
+    }
+  }
+}

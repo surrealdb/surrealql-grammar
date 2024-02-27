@@ -1,7 +1,7 @@
 {
   "scopeName": "inline.surrealql-js-literal",
   "fileTypes": [],
-  "injectionSelector": "L:source -comment -string, L:markup.fenced_code.block.markdown (meta.embedded.block.javascript, meta.embedded.block.typescript, meta.embedded.block.typescriptreact, meta.embedded.block.vue)",
+  "injectionSelector": "L:source -comment -string, (meta.embedded.block.javascript, meta.embedded.block.typescript, meta.embedded.block.typescriptreact, meta.embedded.block.vue)",
   "patterns": [
     {
       "include": "#sql-template-literal"

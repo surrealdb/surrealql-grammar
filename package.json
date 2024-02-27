@@ -65,11 +65,22 @@
           "source.ts",
           "source.tsx",
           "source.vue",
-          "text.html.markdown",
           "source.surrealql"
         ],
         "scopeName": "inline.surrealql-js-literal",
         "path": "./syntaxes/surrealql-js-literal.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.embedded.block.surrealql": "surrealql"
+        }
+      },
+      {
+        "language": "surrealql",
+        "scopeName": "markdown.surrealql.codeblock",
+        "path": "./syntaxes/surrealql-markdown.tmLanguage.json",
+        "injectTo": [
+          "text.html.markdown",
+          "source.mdx"
+        ],
         "embeddedLanguages": {
           "meta.embedded.block.surrealql": "surrealql"
         }

@@ -228,6 +228,10 @@
 					"match": "\\b(EVENT|event)\\b"
 				},
 				{
+					"name": "keyword.control.exists.surrealql",
+					"match": "\\b(EXISTS|exists)\\b"
+				},
+				{
 					"name": "keyword.control.explain.surrealql",
 					"match": "\\b(EXPLAIN|explain)\\b"
 				},
@@ -342,6 +346,10 @@
 				{
 					"name": "keyword.control.noindex.surrealql",
 					"match": "\\b(NOINDEX|noindex)\\b"
+				},
+				{
+					"name": "keyword.control.not.surrealql",
+					"match": "\\b(NOT|not)\\b"
 				},
 				{
 					"name": "keyword.control.ns.surrealql",

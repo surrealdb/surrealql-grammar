@@ -92,6 +92,10 @@
 					"match": "\\b(AFTER|after)\\b"
 				},
 				{
+					"name": "keyword.control.alter.surrealql",
+					"match": "\\b(ALTER|alter)\\b"
+				},
+				{
 					"name": "keyword.control.analyze.surrealql",
 					"match": "\\b(ANALYZE|analyze)\\b"
 				},

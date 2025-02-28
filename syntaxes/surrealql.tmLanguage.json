@@ -88,6 +88,10 @@
 		"keywords": {
 			"patterns": [
 				{
+					"name": "keyword.control.access.surrealql",
+					"match": "\\b(ACCESS|access)\\b"
+				},
+				{
 					"name": "keyword.control.after.surrealql",
 					"match": "\\b(AFTER|after)\\b"
 				},
@@ -378,6 +382,10 @@
 				{
 					"name": "keyword.control.order.surrealql",
 					"match": "\\b(ORDER|order)(?: +(BY|by))?\\b"
+				},
+				{
+					"name": "keyword.control.overwrite.surrealql",
+					"match": "\\b(OVERWRITE|overwrite)\\b"
 				},
 				{
 					"name": "keyword.control.param.surrealql",

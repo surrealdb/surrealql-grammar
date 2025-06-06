@@ -1,95 +1,101 @@
 {
-  "name": "surrealql",
-  "displayName": "SurrealQL",
-  "description": "Official support for the surrealql query language, used by SurrealDB!",
-  "version": "0.2.16",
-  "publisher": "surrealdb",
-  "icon": "./icon.png",
-  "author": {
-    "name": "SurrealDB",
-    "url": "https://surrealdb.com"
-  },
-  "homepage": "https://github.com/surrealdb/surrealql-grammar",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/surrealdb/surrealql-grammar.git"
-  },
-  "engines": {
-    "vscode": "^1.77.0"
-  },
-  "categories": [
-    "Programming Languages",
-    "Snippets"
-  ],
-  "files": [
-    "syntaxes",
-    "icon.png",
-    "language-configuration.json",
-    "LICENSE",
-    "README.md",
-    "snippets.json"
-  ],
-  "contributes": {
-    "languages": [
-      {
-        "id": "surrealql",
-        "aliases": [
-          "SurrealQL",
-          "surrealql"
-        ],
-        "extensions": [
-          ".surql",
-          ".surrealql"
-        ],
-        "configuration": "./language-configuration.json",
-        "icon": {
-          "light": "./icon.png",
-          "dark": "./icon.png"
-        }
-      }
-    ],
-    "grammars": [
-      {
-        "language": "surrealql",
-        "scopeName": "source.surrealql",
-        "path": "./syntaxes/surrealql.tmLanguage.json",
-        "embeddedLanguages": {
-          "meta.embedded.block.javascript": "javascript"
-        }
-      },
-      {
-        "injectTo": [
-          "source.js",
-          "source.js.jsx",
-          "source.jsx",
-          "source.ts",
-          "source.tsx",
-          "source.vue",
-          "source.surrealql"
-        ],
-        "scopeName": "inline.surrealql-js-literal",
-        "path": "./syntaxes/surrealql-js-literal.tmLanguage.json",
-        "embeddedLanguages": {
-          "meta.embedded.block.surrealql": "surrealql"
-        }
-      },
-      {
-        "scopeName": "markdown.surrealql.codeblock",
-        "path": "./syntaxes/surrealql-markdown.tmLanguage.json",
-        "injectTo": [
-          "text.html.markdown",
-          "source.mdx"
-        ],
-        "embeddedLanguages": {
-          "meta.embedded.block.surrealql": "surrealql"
-        }
-      }
-    ],
-    "snippets": [
-      {
-        "language": "surrealql",
-        "path": "./snippets.json"
-      }
-    ]
-  }
+	"name": "surrealql",
+	"displayName": "SurrealQL",
+	"description": "Official SurrealQL language support for reading and authoring SurrealDB queries",
+	"version": "0.2.16",
+	"publisher": "surrealdb",
+	"icon": "res/icon.png",
+	"main": "dist/extension.js",
+	"author": {
+		"name": "SurrealDB",
+		"url": "https://surrealdb.com"
+	},
+	"homepage": "https://github.com/surrealdb/surrealql-grammar",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/surrealdb/surrealql-grammar.git"
+	},
+	"engines": {
+		"vscode": "^1.90.0"
+	},
+	"categories": ["Programming Languages", "Snippets"],
+	"files": ["res", "src", "LICENSE", "README"],
+	"contributes": {
+		"languages": [
+			{
+				"id": "surrealql",
+				"aliases": ["SurrealQL", "surrealql", "surql"],
+				"extensions": [".surql", ".surrealql"],
+				"configuration": "./res/languages/surrealql.json",
+				"icon": {
+					"light": "./res/icon.png",
+					"dark": "./res/icon.png"
+				}
+			}
+		],
+		"grammars": [
+			{
+				"language": "surrealql",
+				"scopeName": "source.surrealql",
+				"path": "./res/grammars/surrealql.tmLanguage.json",
+				"embeddedLanguages": {
+					"meta.embedded.block.javascript": "javascript"
+				}
+			},
+			{
+				"injectTo": [
+					"source.js",
+					"source.js.jsx",
+					"source.jsx",
+					"source.ts",
+					"source.tsx",
+					"source.vue",
+					"source.surrealql"
+				],
+				"scopeName": "inline.surrealql-js-literal",
+				"path": "./res/grammars/surrealql-js.tmLanguage.json",
+				"embeddedLanguages": {
+					"meta.embedded.block.surrealql": "surrealql"
+				}
+			},
+			{
+				"scopeName": "markdown.surrealql.codeblock",
+				"path": "./res/grammars/surrealql-md.tmLanguage.json",
+				"injectTo": ["text.html.markdown", "source.mdx"],
+				"embeddedLanguages": {
+					"meta.embedded.block.surrealql": "surrealql"
+				}
+			}
+		],
+		"snippets": [
+			{
+				"language": "surrealql",
+				"path": "./res/snippets/surrealql.json"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "pnpm run package",
+		"compile": "pnpm run check-types && pnpm run qc && node build.js",
+		"watch": "npm-run-all -p watch:*",
+		"watch:esbuild": "node build.js --watch",
+		"watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+		"package": "pnpm run check-types && pnpm run qc && node build.js --production",
+		"compile-tests": "tsc -p . --outDir out",
+		"watch-tests": "tsc -p . -w --outDir out",
+		"pretest": "pnpm run compile-tests && pnpm run compile && pnpm run qc",
+		"check-types": "tsc --noEmit",
+		"qc": "biome check .",
+		"qa": "biome check . --write",
+		"qau": "biome check . --write --unsafe",
+		"test": "vscode-test"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.8.3",
+		"@types/vscode": "^1.100.0",
+		"@types/node": "20.x",
+		"esbuild": "^0.25.3",
+		"npm-run-all": "^4.1.5",
+		"typescript": "^5.8.3"
+	}
 }

@@ -1,4 +1,4 @@
-# SurrealQL grammar
+# VScode SurrealQL Language Support
 
 SurrealQL is the SQL-like language used by [SurrealDB](https://surrealdb.com). This repository holds it's grammar definition, implementing the textmate-grammar specification.
 

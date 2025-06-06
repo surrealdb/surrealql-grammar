@@ -1,5 +1,5 @@
-/* test */ `${test}`
+/* test */ `${test}`;
 
-const test = /* surrealql */`
+const test = /* surrealql */ `
     SELECT * FROM test ${test * 123}
 `;

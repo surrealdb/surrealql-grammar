@@ -1,0 +1,10 @@
+{
+	"npm.packageManager": "pnpm",
+	"files.exclude": {
+		"out": false
+	},
+	"search.exclude": {
+		"out": true
+	},
+	"typescript.tsc.autoDetect": "off"
+}

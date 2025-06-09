@@ -6,5 +6,6 @@
 		"sourceMap": true,
 		"rootDir": "src",
 		"strict": true
-	}
+	},
+	"include": ["src/**/*.ts"]
 }

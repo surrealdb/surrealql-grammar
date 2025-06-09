@@ -8,7 +8,6 @@ DEFINE FUNCTION fn::get_person($first: string, $last: string, $birthday: string)
 	ELSE
 		CREATE person SET first = $first, last = $last, birthday = $birthday
 	END;
-
 };
 
 function

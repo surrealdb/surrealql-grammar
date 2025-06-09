@@ -12,13 +12,21 @@
 		{
 			"type": "npm",
 			"script": "compile",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: compile",
+			"detail": "pnpm run check-types && pnpm run lint && node build.js"
+		},
+		{
+			"type": "npm",
+			"script": "build",
 			"group": {
 				"kind": "build",
 				"isDefault": true
 			},
 			"problemMatcher": [],
-			"label": "npm: compile",
-			"detail": "pnpm run check-types && pnpm run lint && node build.js"
+			"label": "npm: build",
+			"detail": "node build.js"
 		}
 	]
 }

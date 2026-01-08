@@ -741,8 +741,8 @@
 					"match": "\\b(TRANSACTION|transaction)\\b"
 				},
 				{
-					"name": "keyword.control.typekeyword.surrealql",
-					"match": "\\b(TYPEKEYWORD|typekeyword)\\b"
+					"name": "keyword.control.type.surrealql",
+					"match": "\\b(TYPE|type)\\b"
 				},
 				{
 					"name": "keyword.control.unique.surrealql",
@@ -773,8 +773,8 @@
 					"match": "\\b(USER|user)\\b"
 				},
 				{
-					"name": "keyword.control.valuekeyword.surrealql",
-					"match": "\\b(VALUEKEYWORD|valuekeyword)\\b"
+					"name": "keyword.control.value.surrealql",
+					"match": "\\b(VALUE|value)\\b"
 				},
 				{
 					"name": "keyword.control.values.surrealql",

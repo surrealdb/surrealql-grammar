@@ -132,7 +132,8 @@ RETURN {
 	select: 123,
 	true: false,
 	"double": "quoted",
-	'single': 'quoted'
+	'single': 'quoted',
+	"prefixed": s"test",
 };
 
 -- And one big complex single line object to round it off
@@ -142,6 +143,28 @@ RETURN { test: 123, test:123, test: test:123, 'single': 'quote', "double": "quot
 DEFINE FIELD a ON a TYPE array;
 DEFINE FIELD b ON b TYPE array<number, 5>;
 DEFINE FIELD c ON c TYPE array<record<table_NAME> | null, 10>;
+
+-- Values
+RETURN [
+    null > none,
+    true > null,
+    1 > true,
+    'a' > 999999999,
+    1m > 'a',
+    time::now() > 1m,
+    rand::uuid() > time::now(),
+    [ 9, 10 ] > rand::uuid(),
+    { 9, 10 } > [ 9, 10 ],
+    {} > { 9, 10 },
+    (9.9, 9.9) > {},
+    <bytes>"Aeon" > (9.9, 9.9),
+    type::table("person") > <bytes>"Aeon",
+    person:one > type::table("person"),
+    f"file://myfile.txt" > person:one,
+    <regex>"a|b" > f"file://myfile.txt",
+    0..10 > <regex>"a|b",
+    || > 0.. 10,
+];
 
 ###############################################
 ### lib/test.surql FROM surrealdb/surrealdb ### 
@@ -290,3 +313,24 @@ record:⟨another id field⟩;
 
 SELECT * FROM user_test:tdpc8hw93idfnlmy3825
 WHERE current_tokens.refresh[WHERE expiry > time::now()];
+
+planet:earth.{1..2}.{ name, id, contains: ->has->(?).@ };
+
+RELATE foo<->test->bar SET foo = 'bar', bar = 'baz' RETURN foo, bar;
+
+[
+	{
+		id: temperature:[
+			'London',
+			d'2025-02-19T00:00:00Z'
+		],
+		val: 5.5f
+	},
+	{
+		id: temperature:[
+			'London',
+			d'2025-02-20T00:00:00Z'
+		],
+		val: 5.7f
+	}
+]
